@@ -20,21 +20,25 @@
         
         <h3>Informations du voyage :</h3>
 
-        <label for="depart">Date de départ* :</label><br>
+        <ul>
+        
+        <li><label for="depart">Date de départ* :</label></li><br>
         <input type="date" name="depart" id="depart" required><br><br>
 
-        <label for="retour">Date de retour* :</label><br>
+        <li><label for="retour">Date de retour* :</label></li><br>
         <input type="date" name="retour" id="retour" required><br><br>
 
-        <label for="adultes">Nombre d'adultes* :</label><br>
+        <li><label for="adultes">Nombre d'adultes* :</label></li><br>
         <input type="number" name="adultes" id="adultes" min="1" required><br><br>
 
-        <label for="enfants">Nombre d'enfants (-12 ans)* :</label><br>
+        <li><label for="enfants">Nombre d'enfants (-12 ans)* :</label></li><br>
         <input type="number" name="enfants" id="enfants" min="0" required><br><br>
 
-        <label for="breakfast">Petit-déjeuner ? :</label>
-        <input type="checkbox" name="breakfast" id="breakfast"><br><br>
-
+        <li><label for="breakfast">Petit-déjeuner ? :</label>
+        <input type="checkbox" name="breakfast" id="breakfast"></li><br><br>
+        
+        </ul>
+        
         <p>Prix estimé : <span>— €</span></p>
 
         <input type="submit" value="Valider">
