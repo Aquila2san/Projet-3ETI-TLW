@@ -9,16 +9,22 @@ nav {
     grid-template-areas: 
     "header header header "
     "footer footer footer ";
-    margin: 0 auto;
 }
 .barre_logo{
     text-align: center;
 }
 .barre_top {
-    margin : 2px;
     width : auto;
     text-align: center;
     white-space: nowrap;
     border: 1px solid;
     border-color: black;
+}
+a {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.diaporama {
+    margin: 0 auto;
+
 }
