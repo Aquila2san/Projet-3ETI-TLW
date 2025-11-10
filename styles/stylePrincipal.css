@@ -1,6 +1,18 @@
 nav {
     height: auto;
+    width: auto;
+    grid-template-columns: 600px 600px 320px 320px;
     border: 1px solid;
     border-color: black;
+    align-items: start;
+    justify-content: space-between;
 
+}
+.barre_logo{
+    text-align: center;
+}
+.barre_top {
+    margin : 2px;
+    text-align: end;
+    white-space: nowrap;
 }
