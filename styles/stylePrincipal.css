@@ -1,16 +1,22 @@
 nav {
     height: auto;
-    width: 1200px;
-    border: 1px solid;
+    width: 100%;
+    border: none;
     border-color: black;
+
+    margin : auto;
+    
+}
+.menu_nav{
+    position : sticky;
+    top : 0px;
+    background-color: white;
     display: grid;
-    grid-template-columns: 400px 400px 400px;
-    grid-template-rows: auto;
-    grid-template-areas: 
-    "header header header "
-    "footer footer footer ";
+    grid-template-columns: 30% 40% 30%;
+    grid-column-start: 2;
 }
 .barre_logo{
+    position : sticky;
     text-align: center;
 }
 .barre_top {
@@ -19,12 +25,16 @@ nav {
     white-space: nowrap;
     border: 1px solid;
     border-color: black;
+    border-radius: 2rem;
+    
 }
+/*
 a {
     margin-left: 8px;
     margin-right: 8px;
-}
+}*/
 .diaporama {
     margin: 0 auto;
+
 
 }
