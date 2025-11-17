@@ -6,40 +6,51 @@
     <title>Touraud-Saunier/reservation</title>
     <!--- GROUPE A Touraud-Saunier --->
     <link href="../styles/stylePrincipal.css" rel="stylesheet" />
+    <link href="../styles/stylePaiement_Panier.css" rel="stylesheet" />
 </head>
 <body>
     <h1>Réservation</h1>
 
-    <h2>Votre destination :</h2>
+    <section class="recap">
 
-    <select name="destination" id="destination" required>
-            <option value="">-- Choisissez une destination --</option>
-        </select><br><br>
+        <div class="recap_box">
+            <h2>Votre destination :</h2>
 
-     <!-- Formulaire de réservation -->
-    <form action="panier.html" method="get">
+            <select name="destination" id="destination" required>
+                    <option value="">-- Choisissez une destination --</option>
+                </select><br><br>
+        </div>
         
-        <h3>Informations du voyage :</h3>
-        
-        Date de départ* :<br>
-        <input type="date" name="depart" id="depart" required><br><br>
+        <hr>
 
-        Date de retour* :<br>
-        <input type="date" name="retour" id="retour" required><br><br>
+        <!-- Formulaire de réservation -->
+        <div class="recap_box">
+            <form action="panier.html" method="get">
+                
+                <h3>Informations du voyage :</h3>
+                
+                Date de départ* :<br>
+                <input type="date" name="depart" id="depart" required><br><br>
 
-        Nombre d'adultes* :<br>
-        <input type="number" name="adultes" id="adultes" min="1" required><br><br>
+                Date de retour* :<br>
+                <input type="date" name="retour" id="retour" required><br><br>
 
-        Nombre d'enfants (-12 ans)* :<br>
-        <input type="number" name="enfants" id="enfants" min="0" required><br><br>
+                Nombre d'adultes* :<br>
+                <input type="number" name="adultes" id="adultes" min="1" required><br><br>
 
-        Petit-déjeuner ? :
-        <input type="checkbox" name="breakfast" id="breakfast"><br><br>
-        
-        <p>Prix estimé : <span>— €</span></p>
+                Nombre d'enfants (-12 ans)* :<br>
+                <input type="number" name="enfants" id="enfants" min="0" required><br><br>
 
-        <input type="submit" value="Valider">
-        <input type="reset" value="Réinitialiser">
-    </form>
+                Petit-déjeuner ? :
+                <input type="checkbox" name="breakfast" id="breakfast"><br><br>
+                
+                <p>Prix estimé : <span>— €</span></p>
+                <div class="boutons">
+                    <input type="reset" value="Réinitialiser" class="bouton_modifier">
+                    <input type="submit" value="Valider" class="bouton_confirmer">
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
