@@ -20,6 +20,9 @@ a {
     font-weight: 550;
     font-size: 18px;
 }
+img {
+    vertical-align: middle;
+}
 .menu_nav {
     top : 0px;
     background-color: white;
@@ -29,12 +32,12 @@ a {
 .grid_col_pos1 {
     text-align: center;
     grid-column-start: 1;
-    border : none;
+    border : 1px solid;
 }
 .grid_col_pos2 {
     text-align: center;
     grid-column-start: 2;
-    border : none;
+    border : 1px solid;
 }
 .grid_col_pos3 {
     text-align: center;
@@ -42,7 +45,7 @@ a {
     border : none;
 }
 #barre_logo {
-    border : none;
+    border : 1px solid;
 }
 #barre_onglet {
     width : auto;
