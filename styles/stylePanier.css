@@ -1,0 +1,63 @@
+/* Conteneur principal */
+.panier {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 120px;
+    background: white;
+    border-radius: 100px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Résumé */
+.recap-box {
+    background: rgb(221, 222, 221);
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    border: 3px solid blue;
+}
+
+
+/* Prix */
+.prix {
+    color: blue;
+    font-weight: bold;
+}
+
+/* Boutons */
+.boutons {
+    display: flex;
+    justify-content:space-evenly;
+
+}
+
+/* Style des boutons */
+.bouton_confirmer,
+.bouton_modifier {
+    width: 110%;
+    padding: 15px 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Confirm */
+.bouton_confirmer {
+    background-color: #0077cc;
+    color: white;
+}
+
+.bouton_confirmer:hover {
+    background-color: #005fa3;
+}
+
+/* Modifier */
+.bouton_modifier {
+    background-color: #e7e7e7;
+}
+
+.bouton_modifier:hover {
+    background-color: #d5d5d5;
+}
