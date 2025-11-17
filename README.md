@@ -7,8 +7,9 @@ https://fonts.google.com/
 
 
 DESTINATIONS:
-Bangkok, Thaïlande
-Sydney, Australie
-La Havane, Cuba
-Saint Petersbourg, Russie
-Bogota, Colombie
+Bangkok, Thaïlande;
+Sydney, Australie;
+Saint Petersbourg, Russie;
+Bogota, Colombie;
+
+Photo prises de Pixabay
