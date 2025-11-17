@@ -5,24 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Touraud-Saunier/panier</title>
     <!--- GROUPE A Touraud-Saunier --->
+    <!--- STYLES --->
     <link href="../styles/stylePrincipal.css" rel="stylesheet" />
+    <link href="../styles/stylePanier.css" rel="stylesheet" />
 
 </head>
-<body> <h1>Votre panier</h1>
 
-    <h2>Résumé de votre réservation :</h2>
+<body>
 
-    <h3>Total à payer :</h3>
-    
-    <form action="reservation.html" method="get">
-        <input type="submit" value="Modifier la réservation">
-    </form>
-    
-    <br>
+    <h1>Votre panier</h1>
 
-    <form action="paiement.html"get">
-        <input type="submit" value="Confirmer la réservation">
-    </form>
+    <section class="panier">
+
+        <h2>Résumé de votre réservation</h2>
+
+        <div class="recap-box">
+            <p><strong>Destination :</strong> —</p>
+            <p><strong>Dates :</strong> —</p>
+            <p><strong>Voyageurs :</strong> —</p>
+            <p><strong>Petit-déjeuner :</strong> —</p>
+
+            <h3>Total à payer : <span class="prix">— €</span></h3>
+        </div>
+
+        <div class="boutons">
+            <form action="reservation.html" method="get">
+                <input type="submit" value="Modifier la réservation" class="bouton_modifier">
+            </form>
+
+            <form action="paiement.html" method="get">
+                <input type="submit" value="Confirmer la réservation" class="bouton_confirmer">
+            </form>
+        </div>
+
+    </section>
 
 </body>
 </html>
