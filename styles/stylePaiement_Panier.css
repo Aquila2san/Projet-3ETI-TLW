@@ -1,5 +1,5 @@
-/* Conteneur principal */
-.panier {
+/* Conteneur principal recap */
+.recap {
     max-width: 1000px;
     margin: 30px auto;
     padding: 120px;
@@ -9,7 +9,7 @@
 }
 
 /* Résumé */
-.recap-box {
+.recap_box {
     background: rgb(221, 222, 221);
     padding: 15px 20px;
     border-radius: 25px;
@@ -23,6 +23,7 @@
     color: blue;
     font-weight: bold;
 }
+
 
 /* Boutons */
 .boutons {
@@ -61,3 +62,4 @@
 .bouton_modifier:hover {
     background-color: #d5d5d5;
 }
+
