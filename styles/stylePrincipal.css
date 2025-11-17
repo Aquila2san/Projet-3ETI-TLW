@@ -29,14 +29,17 @@ a {
 .grid_col_pos1 {
     text-align: center;
     grid-column-start: 1;
+    border : none;
 }
 .grid_col_pos2 {
     text-align: center;
     grid-column-start: 2;
+    border : none;
 }
 .grid_col_pos3 {
     text-align: center;
     grid-column-start: 3;
+    border : none;
 }
 #barre_logo {
     border : none;
@@ -48,8 +51,8 @@ a {
 .grid_2col{
     grid-template-columns: 50% 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: space-evenly;
 }
 .diaporama {
     max-width: 80%;
