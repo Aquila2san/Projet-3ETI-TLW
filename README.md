@@ -10,6 +10,7 @@ DESTINATIONS:
 Bangkok, Thaïlande;
 Sydney, Australie;
 Saint Petersbourg, Russie;
-Bogota, Colombie;
+Salvador, Brésil;
+Palawan, Philippines;
 
 Photo prises de Pixabay

@@ -32,12 +32,12 @@ img {
 .grid_col_pos1 {
     text-align: center;
     grid-column-start: 1;
-    border : 1px solid;
+    border : none;
 }
 .grid_col_pos2 {
     text-align: center;
     grid-column-start: 2;
-    border : 1px solid;
+    border : none;
 }
 .grid_col_pos3 {
     text-align: center;
@@ -45,7 +45,7 @@ img {
     border : none;
 }
 #barre_logo {
-    border : 1px solid;
+    border : none;
 }
 #barre_onglet {
     width : auto;

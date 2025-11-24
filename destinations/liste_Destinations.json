@@ -1,0 +1,30 @@
+{
+    "voyages": [
+        {
+        "ville":"Bangkok",
+        "pays":"Thaïlande",
+        "image1":"bangkok1.jpg"
+        },
+        {
+        "ville":"Saint-Petersburg",
+        "pays":"Russie",
+        "image1":"st-petersburg1.jpg"
+        },
+        {
+        "ville":"Sydney",
+        "pays":"Australie",
+        "image1":"sydney1.jpg"
+        },
+        {
+        "ville":"Palawan",
+        "pays":"Philippines",
+        "image1":"bangkok1.jpg"
+        },
+        {
+        "ville":"Salvador",
+        "pays":"Brésil",
+        "image1":"bangkok1.jpg"
+        }
+    ]
+
+}
