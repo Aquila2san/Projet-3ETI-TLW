@@ -31,6 +31,33 @@ document.addEventListener('DOMContentLoaded', () => {
             input.addEventListener('input', calculerPrix);
         }
     });
+
+    //Gestion des dates (grise le calendrier)
+    inputs.depart.addEventListener('change', function() {
+        const dateDepartChoisie = inputs.depart.value;
+        inputs.retour.min = dateDepartChoisie;
+        
+        if (inputs.retour.value && inputs.retour.value < dateDepartChoisie) {
+            inputs.retour.value = "";
+            inputs.prixLabel.innerText = "0";
+        }
+    });
+
+    //Blocage de l'envoi du formulaire si dates invalides
+    if (formReservation) {
+        formReservation.addEventListener('submit', function(event) {
+            const dateDepart = new Date(inputs.depart.value);
+            const dateRetour = new Date(inputs.retour.value);
+
+            if (isNaN(dateDepart) || isNaN(dateRetour) || dateRetour <= dateDepart) {
+                event.preventDefault();
+                alert("Veuillez corriger les dates avant de réserver.");
+            }
+        });
+    }
+
+    //Premier calcul à l'ouverture de la page
+    calculerPrix();
 });
 
 //Fonction de calcul du prix
