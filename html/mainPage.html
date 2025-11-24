@@ -8,6 +8,7 @@
 
     <!-- Feuille de styles et polices-->
     <link href="../styles/stylePrincipal.css" rel="stylesheet" />
+<<<<<<< HEAD
     <script src="main.js"></script>
 </head>
 <body>
@@ -30,6 +31,13 @@
             </a>
         </div>
     </nav>
+=======
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+>>>>>>> edef1a13592927f83d719b9ec507e5e236d7cb5c
 
     <!--- Grille de destinations-->
     <section >
@@ -40,21 +48,13 @@
 
     </section>
     
-    <footer>
-        <nav class="menu_nav">
-            <div class="grid_col_pos1">
-                <a href="https://github.com/cpe-lyon/groupe-a-touraud-saunier" target="_blank">
-                    <img src="../imagesPartagees/github-mark.svg" alt="github" height="36" width="36">
-                    Notre GitHub
-                </a>
-            </div>
-            <div class="grid_col_pos2">
-                <a href="contacts.html"> 
-                    <img src="../imagesPartagees/contacts.svg" alt="contacts" height="36" width="36">
-                    Nous Contacter
-                </a>
-            </div>
-        </nav>
-    </footer>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        $(function(){
+            $("#header-placeholder").load("header.html");
+            $("#footer-placeholder").load("footer.html");
+        });
+    </script>
 </body>
 </html>

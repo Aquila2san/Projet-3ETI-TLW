@@ -7,27 +7,11 @@
     <!--- GROUPE A Touraud-Saunier --->
     <link href="../styles/stylePrincipal.css" rel="stylesheet" />
     <link href="../styles/stylePaiement_Panier.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <!--- Menu de Navigation --->
-    <nav class="menu_nav">
-        <div class="grid_col_pos2" id="barre_logo">
-            <a href="mainPage.html">
-                <img src="../imagesPartagees/logo.png" alt="logo travel'o" height="36" width="180">
-            </a>
-        </div>
-        <div class="grid_col_pos3 grid_2col" id="barre_onglet">
-            <a class="grid_col_pos1" href="panier.html"> 
-                <img src="../imagesPartagees/panier.svg" alt="panier" height="36" width="36">
-                Mon Panier
-            </a>
-        
-            <a class="grid_col_pos2" href="profil.html"> 
-                <img src="../imagesPartagees/profil.svg" alt="profil" height="36" width="36">
-                Mon Profil
-            </a>
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <h1>Réservation</h1>
 
@@ -37,8 +21,12 @@
             <h2>Votre destination :</h2>
 
             <select name="destination" id="destination" required>
-                    <option value="">-- Choisissez une destination --</option>
-                </select><br><br>
+                <option value="">-- Choisissez une destination --</option>
+                <option value="bangkok">Bangkok</option>
+                <option value="sydney">Sydney</option>
+                <option value="st-petersburg">Saint Petersbourg</option>
+                <option value="bogota">Bogota</option>
+            </select>
         </div>
         
         <hr>
@@ -64,7 +52,7 @@
                 Petit-déjeuner ? :
                 <input type="checkbox" name="breakfast" id="breakfast"><br><br>
                 
-                <p>Prix estimé : <span>— €</span></p>
+                <p>Prix estimé : <span id="prixTotal">0</span> €</p>
                 <div class="boutons">
                     <input type="reset" value="Réinitialiser" class="bouton_modifier">
                     <input type="submit" value="Valider" class="bouton_confirmer">
@@ -75,21 +63,15 @@
 
     <hr>
 
-    <footer>
-        <nav class="menu_nav">
-            <div class="grid_col_pos1">
-                <a href="https://github.com/cpe-lyon/groupe-a-touraud-saunier">
-                    <img src="../imagesPartagees/github-mark.svg" alt="github" height="36" width="36">
-                    Notre GitHub
-                </a>
-            </div>
-            <div class="grid_col_pos2">
-                <a href="contacts.html"> 
-                    <img src="../imagesPartagees/contacts.svg" alt="contacts" height="36" width="36">
-                    Nous Contacter
-                </a>
-            </div>
-        </nav>
-    </footer>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        $(function(){
+            $("#header-placeholder").load("header.html");
+            $("#footer-placeholder").load("footer.html");
+        });
+    </script>
+
+    <script src="../js/reservation.js"></script>
 </body>
 </html>
