@@ -1,7 +1,7 @@
 fetch("../destinations/liste_Destinations.json")
   .then(texte_brut => texte_brut.json())
   .then(data => {
-  const grille = document.getElementById("grid_cellule");
+  const grille = document.getElementById("grid_cellules");
 
   data.voyages.forEach(voyage => {
     const a = document.createElement("a");
