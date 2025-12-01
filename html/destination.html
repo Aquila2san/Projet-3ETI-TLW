@@ -8,11 +8,35 @@
 
     <!-- Feuille de styles et polices-->
     <link href="../styles/stylePrincipal.css" rel="stylesheet" />
+    <link href="../styles/stylePaiement_Panier.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div id="header-placeholder"></div>
 
+    <main>
+        <h1 id="dest-titre">Chargement...</h1>
+
+        <img id="dest-image" class="diaporama" src="" alt="">
+
+        <section class="recap">
+            <div class="recap_box">
+                <h2>Détails du voyage</h2>
+                <p>Pays :<span id="dest-pays"></span></p>
+                <p>Description :<br><span id="dest-description"></span></p>
+                
+                <p>
+                    Prix par jour/pers : <span id="dest-prix" class="prix"></span> €
+                </p>
+            </div>
+
+            <div class="boutons">
+                <a id="btn-reserver" href="../reservation.html?id=dest-id" class="bouton_confirmer">
+                    Réserver ce voyage
+                </a>
+            </div>
+        </section>
+    </main>
 
     
     <div id="footer-placeholder"></div>
