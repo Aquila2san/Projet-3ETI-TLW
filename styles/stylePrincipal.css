@@ -71,6 +71,11 @@ img {
 .cellule{
     border-radius: 1rem;
     background-size: 700px;
+    color : white;
+    font-family : "RobotoBold", sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 22px;
 }
 body {
     background-image: url("..destinations/bangkok1.jpg");
