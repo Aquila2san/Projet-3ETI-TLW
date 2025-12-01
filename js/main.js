@@ -7,7 +7,7 @@ fetch("../destinations/liste_Destinations.json")
     const a = document.createElement("a");
     a.textContent = `${voyage.ville}, ${voyage.pays}`;
     a.className = "cellule";
-    a.href = `destination.html?id=${voyage.identifiant}`;
+    a.href = `destination.html?id=${voyage.id}`;
     a.style.backgroundImage = `url(../destinations/${voyage.image1})`;
     grille.appendChild(a);
   });

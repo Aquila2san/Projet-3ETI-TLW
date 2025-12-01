@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.body.style.backgroundPosition = "center";  
             document.body.style.backgroundAttachment = "fixed"; 
 
-            // C. Mise à jour du lien
+            // Mise à jour du lien
             const lienReservation = document.getElementById('btn-reserver');
             lienReservation.href = `reservation.html?id=${id}`;
         } else {
