@@ -1,0 +1,70 @@
+/* Conteneur principal recap */
+.recap {
+    max-width: 40%;
+    margin: 0 auto;
+    padding: 120px;
+    background: none;
+}
+
+/* Résumé */
+.recap_box {
+    background: rgb(221, 222, 221);
+    padding: 20px;
+    border-radius: 25px;
+    margin: 25px;
+    border: 3px solid blue;
+}
+#dest-titre{
+    color : white;
+    font-family : "RobotoBold", sans-serif;
+    font-style: normal;
+    font-weight: 550;
+    font-size: 22px;
+    padding: 25px;
+}
+
+
+/* Prix */
+.prix {
+    color: blue;
+    font-weight: bold;
+}
+
+
+/* Boutons */
+.boutons {
+    display: flex;
+    justify-content:space-evenly;
+
+}
+
+/* Style des boutons */
+.bouton_confirmer,.bouton_modifier {
+    width: 110%;
+    padding: 15px 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Confirm */
+.bouton_confirmer {
+    background-color: #0077cc;
+    color: white;
+}
+
+.bouton_confirmer:hover {
+    background-color: #005fa3;
+}
+
+/* Modifier */
+.bouton_modifier {
+    background-color: #e7e7e7;
+}
+
+.bouton_modifier:hover {
+    background-color: #d5d5d5;
+}
+

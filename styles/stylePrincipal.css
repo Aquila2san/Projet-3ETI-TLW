@@ -76,6 +76,7 @@ img {
     font-style: normal;
     font-weight: 550;
     font-size: 22px;
+    padding: 20px;
 }
 body {
     background-image: url("..destinations/bangkok1.jpg");

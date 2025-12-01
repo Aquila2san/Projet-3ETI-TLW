@@ -21,10 +21,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('dest-prix').innerText = voyage.prix;
 
             // Image en fond 
-            document.body.style.backgroundImage = `url('../destinations/${voyage.image1}')`;
-            document.body.style.backgroundSize = "cover";       
-            document.body.style.backgroundPosition = "center";  
-            document.body.style.backgroundAttachment = "fixed"; 
+            const affiche = document.getElementById("affiche_destination");
+            
+            affiche.style.backgroundImage = `url(../destinations/${voyage.image1})`;
+            affiche.style.backgroundSize = "cover";       
+            affiche.style.backgroundPosition = "center";  
+            affiche.style.backgroundAttachment = "fixed"; 
 
             // Mise à jour du lien
             const lienReservation = document.getElementById('btn-reserver');
