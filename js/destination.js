@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // Récupérer l'ID dans l'URL (ex: ?id=bangkok)
+    // Récupérer l'ID dans l'URL
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
 
@@ -14,16 +14,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         const voyage = data.voyages.find(v => v.id === id);
 
         if (voyage) {
-            // Remplir la page
+            // Textes
             document.getElementById('dest-titre').innerText = voyage.ville;
             document.getElementById('dest-pays').innerText = voyage.pays;
             document.getElementById('dest-description').innerText = voyage.description;
             document.getElementById('dest-prix').innerText = voyage.prix;
-            document.getElementById('dest-image').src = voyage.image1;
 
-            // Mettre à jour le lien "Réserver" pour qu'il garde l'ID en mémoire
-            document.getElementById('btn-reserver').href = `reservation.html?id=${id}`;
+            // Image en fond 
+            document.body.style.backgroundImage = `url('../destinations/${voyage.image1}')`;
+            document.body.style.backgroundSize = "cover";       
+            document.body.style.backgroundPosition = "center";  
+            document.body.style.backgroundAttachment = "fixed"; 
+
+            // C. Mise à jour du lien
+            const lienReservation = document.getElementById('btn-reserver');
+            lienReservation.href = `reservation.html?id=${id}`;
+        } else {
+            console.error("Voyage non trouvé pour l'id : " + id);
         }
+        
     } catch (error) {
         console.error("Erreur", error);
     }
