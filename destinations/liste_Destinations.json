@@ -4,7 +4,6 @@
         "id": "bangkok",
         "ville":"Bangkok",
         "pays":"Thaïlande",
-        "identifiant":"bangkok",
         "image1":"bangkok1.jpg",
         "prix": 80,
         "description": "Découvrez les temples dorés et la vie nocturne trépidante."
@@ -13,7 +12,6 @@
         "id": "st-petersburg",
         "ville":"Saint-Petersburg",
         "pays":"Russie",
-        "identifiant":"st-petersburg",
         "image1":"st-petersburg1.jpg",
         "prix": 120,
         "description": "Plongez dans l'histoire des tsars et l'architecture grandiose."
@@ -22,7 +20,6 @@
         "id": "sydney",
         "ville":"Sydney",
         "pays":"Australie",
-        "identifiant":"sydney",
         "image1":"sydney1.jpg",
         "prix": 150,
         "description": "L'opéra, le surf et les kangourous vous attendent."
@@ -31,7 +28,6 @@
         "id": "palawan",
         "ville":"Palawan",
         "pays":"Philippines",
-        "identifiant":"palawan",
         "image1":"palawan1.jpg",
         "prix": 90,
         "description": "Un paradis tropical aux eaux cristallines."
@@ -40,10 +36,17 @@
         "id": "salvador",    
         "ville":"Salvador",
         "pays":"Brésil",
-        "identifiant":"salvador",
         "image1":"salvador1.jpg",
         "prix": 100,
         "description": "Rythmes de samba et couleurs éclatantes."
+        },
+        {
+        "id": "amsterdam",    
+        "ville": "Amsterdam",
+        "pays": "Pays-Bas",
+        "image1":"salvador1.jpg",
+        "prix": 160,
+        "description": "Ville de canaux et de culture au charme infini."
         }
     ]
 
