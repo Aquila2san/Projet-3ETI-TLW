@@ -1,21 +1,15 @@
-async function getData() {
-  const url = "../destinations/liste_Destinations.json";
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
+fetch("../destinations/liste_Destinations.json")
+  .then(texte_brut => texte_brut.json())
+  .then(data => {
+  const grille = document.getElementById("grid_cellule");
 
-    const result = await response.json();
-    console.log(result);
-  }catch (error) {
-    console.error(error.message);
-  }
-}
-
-function CHARGER_Destinations() {
-  const grille = document.querySelector("section");
-  const cellule = document.createElement("div");
-  cellule.createElement("")
-  
-}
+  data.voyages.forEach(voyage => {
+    const a = document.createElement("a");
+    a.textContent = `${voyage.ville}, ${voyage.pays}`;
+    a.className = "cellule";
+    a.href = `destination.html?id=${voyage.identifiant}`;
+    a.style.backgroundImage = `url(../destinations/${voyage.image1})`;
+    grille.appendChild(a);
+  });
+})
+.catch(err => console.error("Erreur JSON :", err));

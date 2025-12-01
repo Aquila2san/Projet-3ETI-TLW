@@ -3,27 +3,32 @@
         {
         "ville":"Bangkok",
         "pays":"Thaïlande",
+        "identifiant":"bangkok",
         "image1":"bangkok1.jpg"
         },
         {
         "ville":"Saint-Petersburg",
         "pays":"Russie",
+        "identifiant":"st-petersburg",
         "image1":"st-petersburg1.jpg"
         },
         {
         "ville":"Sydney",
         "pays":"Australie",
+        "identifiant":"sydney",
         "image1":"sydney1.jpg"
         },
         {
         "ville":"Palawan",
         "pays":"Philippines",
-        "image1":"bangkok1.jpg"
+        "identifiant":"palawan",
+        "image1":"palawan1.jpg"
         },
         {
         "ville":"Salvador",
         "pays":"Brésil",
-        "image1":"bangkok1.jpg"
+        "identifiant":"salvador",
+        "image1":"salvador1.jpg"
         }
     ]
 
