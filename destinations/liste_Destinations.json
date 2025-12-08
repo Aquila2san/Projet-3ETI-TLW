@@ -6,6 +6,7 @@
         "pays":"Thaïlande",
         "image1":"bangkok1.jpg",
         "prix": 80,
+        "animaux": "non",
         "description": "Découvrez les temples dorés et la vie nocturne trépidante."
         },
         {
@@ -14,6 +15,7 @@
         "pays":"Russie",
         "image1":"st-petersburg1.jpg",
         "prix": 120,
+        "animaux": "oui",
         "description": "Plongez dans l'histoire des tsars et l'architecture grandiose."
         },
         {
@@ -22,6 +24,7 @@
         "pays":"Australie",
         "image1":"sydney1.jpg",
         "prix": 150,
+        "animaux": "non",
         "description": "L'opéra, le surf et les kangourous vous attendent."
         },
         {
@@ -30,6 +33,7 @@
         "pays":"Philippines",
         "image1":"palawan1.jpg",
         "prix": 90,
+        "animaux": "non",
         "description": "Un paradis tropical aux eaux cristallines."
         },
         {
@@ -38,6 +42,7 @@
         "pays":"Brésil",
         "image1":"salvador1.jpg",
         "prix": 100,
+        "animaux": "oui",
         "description": "Rythmes de samba et couleurs éclatantes."
         },
         {
@@ -46,6 +51,7 @@
         "pays": "Pays-Bas",
         "image1":"amsterdam1.jpg",
         "prix": 160,
+        "animaux": "oui",
         "description": "Ville de canaux et de culture au charme infini."
         }
     ]

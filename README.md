@@ -12,5 +12,6 @@ Sydney, Australie;
 Saint Petersbourg, Russie;
 Salvador, Brésil;
 Palawan, Philippines;
+Putrajaya, Malaisie;
 
 Photo prises de Pixabay

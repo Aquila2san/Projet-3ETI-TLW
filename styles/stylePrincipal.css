@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "RobotoBold";
-    src: url("Roboto-Bold.ttf") format("ttf");
-    font-weight: bold;
-    font-style: normal;
+    font-family: "Roboto";
+    src: local("Roboto-Black"), local("Roboto-Bold"),
+    url("Roboto-Black.ttf");
+    font-weight: unset;
 }
-nav {
+#header-placeholder {
     position : sticky;
     height: auto;
     width: 100%;
@@ -15,9 +15,8 @@ nav {
 a {
     color : black;
     text-decoration : none;
-    font-family : "RobotoBold", sans-serif;
-    font-style: normal;
-    font-weight: 550;
+    font-family: "Roboto";
+    font-weight: 100;
     font-size: 18px;
 }
 img {
@@ -59,7 +58,9 @@ img {
 }
 #grid_cellules{
     width: 70%;
-    margin : 5%;
+    margin-left : 5%;
+    margin-right : 5%;
+    margin-bottom: 5%;
     background-color: white;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -68,22 +69,24 @@ img {
     width : auto;
     text-align: center;
 }
+#filtres{
+    width: 70%;
+    margin-top: 5%;
+    background-color: white;
+    gap: 10px;
+    width : auto;
+    margin-left: 5%;
+    font-family: "Roboto";
+    font-weight:100;
+}
+
 .cellule{
     border-radius: 1rem;
-    background-size: 700px;
+    background-size: 640px;
     color : white;
-    font-family : "RobotoBold", sans-serif;
-    font-style: normal;
-    font-weight: 550;
     font-size: 22px;
     padding: 20px;
 }
-body {
-    background-image: url("..destinations/bangkok1.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: center;
+.masquer{
+    display : none;
 }
-

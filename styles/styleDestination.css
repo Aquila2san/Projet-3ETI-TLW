@@ -8,7 +8,7 @@
 
 /* Résumé */
 .recap_box {
-    background: rgb(221, 222, 221);
+    background: rgba(221, 222, 221, 0.85);
     padding: 20px;
     border-radius: 25px;
     margin: 25px;
