@@ -18,33 +18,34 @@
     <h1>Votre panier</h1>
 
     <section class="recap">
-
-        <h2>Résumé de votre réservation</h2>
-
-        <div class="recap_box">
-            <p><strong>Destination :</strong> —</p>
-            <p><strong>Date de départ :</strong> —</p>
-            <p><strong>Date de retour :</strong> —</p>
-            <p><strong>Adultes :</strong> —</p>
-            <p><strong>Enfants :</strong> —</p>
-            <p><strong>Petit-déjeuner :</strong> —</p>
-
-            <h3>Total à payer : <span class="prix">— €</span></h3>
+        
+        <div id="panier-vide" class="recap_box hidden">
+            <p>Votre panier est malheureusement vide.</p>
+            <br>
+            <a href="mainPage.html" class="bouton_confirmer">
+                Découvrir nos voyages
+            </a>
         </div>
 
-        <div class="boutons">
-            <form action="reservation.html" method="get">
-                <input type="submit" value="Modifier la réservation" class="bouton_modifier">
-            </form>
+        <div id="liste-reservations"></div>
 
-            <form action="paiement.html" method="get">
-                <input type="submit" value="Confirmer la réservation" class="bouton_confirmer">
-            </form>
+        <div id="panier-actions" class="hidden">
+            <div class="recap_box" >
+                <h2>Total de la commande : <span id="total-global" class="prix">0</span> €</h2>
+            </div>
+
+            <div class="boutons">
+                <a href="mainPage.html" class="bouton_modifier">
+                    Réserver un autre voyage
+                </a>
+
+                <form action="paiement.html" method="get">
+                    <input type="submit" value="Valider et Payer" class="bouton_confirmer">
+                </form>
+            </div>
         </div>
 
     </section>
-
-    <hr>
 
     <div id="footer-placeholder"></div>
 
@@ -54,5 +55,6 @@
             $("#footer-placeholder").load("footer.html");
         });
     </script>
+    <script src="../js/panier.js"></script>
 </body>
 </html>

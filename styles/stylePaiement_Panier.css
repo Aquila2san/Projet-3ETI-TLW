@@ -64,3 +64,46 @@
     background-color: #d5d5d5;
 }
 
+.hidden {
+    display: none !important;
+}
+
+#liste-reservations .recap_box {
+    position: relative;
+}
+
+#liste-reservations h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.4em;
+    display: inline-block; 
+}
+
+#liste-reservations button {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    float: right; 
+    transition: background 0.3s;
+}
+
+#liste-reservations button:hover {
+    background-color: #a71d2a;
+}
+
+#liste-reservations .prix-article {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #0077cc;
+    margin-top: 15px;
+}
+
+#panier-vide {
+    text-align: center;
+    padding: 40px;
+}
