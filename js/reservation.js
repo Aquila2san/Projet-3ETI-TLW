@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             inputs.retour.min = dateDepart;
 
             // 3. Si une date de retour invalide était déjà mise, on l'efface
-            if (inputs.retour.value && inputs.retour.value < dateDepart) {
+            if (inputs.retour.value < dateDepart) {
                 inputs.retour.value = "";
                 calculerPrix();
             }
