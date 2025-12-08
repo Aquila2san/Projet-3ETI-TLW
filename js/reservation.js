@@ -1,4 +1,4 @@
-// Récupération des éléments
+// 1. On liste tous les champs dont on a besoin
 const inputs = {
     destination: document.getElementById('destination'),
     depart: document.getElementById('depart'),
@@ -10,155 +10,151 @@ const inputs = {
     form: document.getElementById('formReservation')
 };
 
+// Variable pour stocker la liste des voyages chargée depuis le JSON
 let listeVoyages = [];
 
+// 2. Au chargement de la page (équivalent à $(document).ready en jQuery)
 document.addEventListener('DOMContentLoaded', async () => {
     
-    // 1. Chargement des données JSON
+    // --- A. CHARGEMENT DES DONNÉES ---
     try {
+        // On récupère le fichier JSON
         const response = await fetch('../destinations/liste_Destinations.json');
-        if (!response.ok) throw new Error("Erreur JSON");
-        
         const data = await response.json();
-        listeVoyages = data.voyages;
+        listeVoyages = data.voyages; // On stocke les voyages
 
-        // Remplissage du menu déroulant
+        // On remplit le menu déroulant
         remplirMenuDeroulant();
 
-        // 2. Gestion de la pré-sélection via l'URL
+        // Si on vient de la page d'accueil avec un ID (ex: ?id=bangkok)
         const params = new URLSearchParams(window.location.search);
         const destinationId = params.get('id');
         
-        if (destinationId && listeVoyages.some(v => v.id === destinationId)) {
+        // On pré-sélectionne la destination
+        if (destinationId) {
             inputs.destination.value = destinationId;
-            calculerPrix();
+            calculerPrix(); // On lance un premier calcul
         }
 
     } catch (error) {
-        console.error("Erreur:", error);
+        console.error("Erreur de chargement :", error);
     }
 
-    // 3. Ajout des écouteurs pour le calcul automatique
-    Object.values(inputs).forEach(input => {
-        if(input && input !== inputs.prixLabel && input !== inputs.form) {
-            input.addEventListener('change', calculerPrix);
-            input.addEventListener('input', calculerPrix);
+    // --- B. ÉCOUTEURS D'ÉVÉNEMENTS ---
+    const champsAecouter = [inputs.destination, inputs.depart, inputs.retour, inputs.adultes, inputs.enfants, inputs.breakfast];
+    
+    champsAecouter.forEach(element => {
+        if (element) {
+            element.addEventListener('change', calculerPrix);
+            element.addEventListener('input', calculerPrix);
         }
     });
 
-    // 4. Gestion des dates (Retour >= Départ)
+    // --- C. SÉCURITÉ DES DATES ---
     if(inputs.depart) {
         inputs.depart.addEventListener('change', function() {
-            inputs.retour.min = inputs.depart.value;
-            if (inputs.retour.value && inputs.retour.value < inputs.depart.value) {
+            // 1. On récupère la date de départ choisie
+            const dateDepart = inputs.depart.value;
+            
+            // 2. On force la date de retour minimum à cette date
+            inputs.retour.min = dateDepart;
+
+            // 3. Si une date de retour invalide était déjà mise, on l'efface
+            if (inputs.retour.value && inputs.retour.value < dateDepart) {
                 inputs.retour.value = "";
                 calculerPrix();
             }
         });
     }
 
-    // 5. Blocage de l'envoi si données invalides
+    // --- D. SAUVEGARDE DANS LE PANIER ---
     if (inputs.form) {
         inputs.form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // 1. Validation : On vérifie que les dates sont logiques
             const dateDepart = new Date(inputs.depart.value);
             const dateRetour = new Date(inputs.retour.value);
             
-            if (isNaN(dateDepart) || isNaN(dateRetour) || dateRetour <= dateDepart) {
-                event.preventDefault();
-                alert("Veuillez vérifier les dates.");
-            }
-        });
-    }
-    // 6. Sauvegarde dans le panier
-    if (inputs.form) {
-        inputs.form.addEventListener('submit', function(event) {
-            event.preventDefault(); // On empêche l'envoi classique pour traiter les données
-
-            // Validation finale
-            const dateDepart = new Date(inputs.depart.value);
-            const dateRetour = new Date(inputs.retour.value);
-            const prixTotal = parseInt(inputs.prixLabel.innerText); // Récupère le prix calculé
-
-            if (isNaN(dateDepart) || isNaN(dateRetour) || dateRetour <= dateDepart) {
-                alert("Veuillez vérifier les dates.");
-                return;
+            if (dateRetour <= dateDepart) {
+                alert("Attention : La date de retour doit être après le départ.");
+                return; // On arrête tout
             }
 
-            // Création de l'objet Réservation
-            // On récupère le nom complet de la ville pour l'affichage
-            const voyageChoisi = listeVoyages.find(v => v.id === inputs.destination.value);
-            const nomDestination = voyageChoisi ? voyageChoisi.ville : inputs.destination.value;
-
-            const reservation = {
-                id: Date.now(), // ID unique basé sur l'heure
-                destinationId: inputs.destination.value,
-                destinationNom: nomDestination,
+            // 2. Création de l'objet "Réservation"
+            const voyageInfos = listeVoyages.find(v => v.id === inputs.destination.value);
+            
+            const nouvelleReservation = {
+                destinationNom: voyageInfos ? voyageInfos.ville : "Destination inconnue",
                 dateDepart: inputs.depart.value,
                 dateRetour: inputs.retour.value,
                 adultes: inputs.adultes.value,
                 enfants: inputs.enfants.value,
                 petitDejeuner: inputs.breakfast.checked,
-                prixTotal: prixTotal
+                prixTotal: parseInt(inputs.prixLabel.innerText)
             };
 
-            // Sauvegarde dans le localStorage
-            // On stocke sous forme de tableau pour gérer potentiellement plusieurs réservations
-            let panier = JSON.parse(localStorage.getItem('monPanier')) || [];
-            panier.push(reservation);
-            localStorage.setItem('monPanier', JSON.stringify(panier));
+            // 3. Sauvegarde dans le LocalStorage
+            let panierInfos = localStorage.getItem('monPanier');
+            let panier = [];
 
-            // Redirection vers la page panier
+            if (panierInfos) {
+                try {
+                    panier = JSON.parse(panierInfos);
+                    if (!Array.isArray(panier)) panier = [];
+                } catch (e) {
+                    panier = [];
+                }
+            }
+            panier.push(nouvelleReservation);
+            localStorage.setItem('monPanier', JSON.stringify(panier));
             window.location.href = "panier.html";
         });
     }
 });
 
-// --- Fonctions ---
+// --- FONCTIONS UTILITAIRES ---
 
 function remplirMenuDeroulant() {
     const select = inputs.destination;
-    select.innerHTML = '<option value="">-- Choisissez une destination --</option>';
-
+    select.innerHTML = '<option value="">-- Choisissez --</option>';
+    
     listeVoyages.forEach(voyage => {
         const option = document.createElement('option');
-        option.value = voyage.id;
-        option.textContent = voyage.ville;
+        option.value = voyage.id;      // La valeur technique (ex: bangkok)
+        option.textContent = voyage.ville; // Le texte affiché (ex: Bangkok)
         select.appendChild(option);
     });
 }
 
 function calculerPrix() {
-    // Récupération des valeurs
-    const destID = inputs.destination.value;
-    const dateDepart = new Date(inputs.depart.value);
-    const dateRetour = new Date(inputs.retour.value);
+    // 1. On récupère toutes les valeurs
+    const dest = inputs.destination.value;
+    const d1 = new Date(inputs.depart.value);
+    const d2 = new Date(inputs.retour.value);
     const nbAdultes = parseInt(inputs.adultes.value) || 0;
     const nbEnfants = parseInt(inputs.enfants.value) || 0;
-    const hasBreakfast = inputs.breakfast.checked;
+    const petitDej = inputs.breakfast.checked;
 
-    // Vérification basique
-    if (!destID || isNaN(dateDepart) || isNaN(dateRetour) || dateRetour <= dateDepart) {
+    // 2. Si manque d'infos, on met 0
+    if (!dest || isNaN(d1) || isNaN(d2) || d2 <= d1) {
         inputs.prixLabel.innerText = "0";
         return;
     }
 
-    // Récupération du prix depuis la liste chargée
-    const voyageChoisi = listeVoyages.find(v => v.id === destID);
-    if (!voyageChoisi) return;
+    // 3. On trouve le prix de la destination
+    const voyage = listeVoyages.find(v => v.id === dest);
+    if (!voyage) return;
 
-    const prixBase = voyageChoisi.prix;
+    // 4. Calcul mathématique
+    const duree = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24)); // Durée en jours
     
-    // Calcul durée
-    const diffTime = dateRetour - dateDepart;
-    const dureeSejour = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    let total = (nbAdultes * voyage.prix * duree);       // Prix adultes
+    total += (nbEnfants * (voyage.prix * 0.40) * duree); // Prix enfants (40%)
+    
+    if (petitDej) {
+        total += (nbAdultes + nbEnfants) * 15 * duree;   // Prix petit-déj
+    }
 
-    // Application des règles
-    let totalAdultes = nbAdultes * prixBase * dureeSejour;
-    let totalEnfants = nbEnfants * (prixBase * 0.40) * dureeSejour; // -60% pour les enfants
-    let totalBreakfast = hasBreakfast ? ((nbAdultes + nbEnfants) * 15 * dureeSejour) : 0;
-
-    const prixFinal = totalAdultes + totalEnfants + totalBreakfast;
-
-    // Affichage
-    inputs.prixLabel.innerText = Math.round(prixFinal);
+    inputs.prixLabel.innerText = Math.round(total);
 }

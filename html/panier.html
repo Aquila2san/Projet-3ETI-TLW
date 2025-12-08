@@ -18,39 +18,34 @@
     <h1>Votre panier</h1>
 
     <section class="recap">
-
-        <h2>Résumé de votre réservation</h2>
-
-        <div class="recap_box" id="panier-vide" style="display:none;">
-            <p>Votre panier est vide.</p>
+        
+        <div id="panier-vide" class="recap_box hidden">
+            <p>Votre panier est malheureusement vide.</p>
+            <br>
+            <a href="mainPage.html" class="bouton_confirmer">
+                Découvrir nos voyages
+            </a>
         </div>
 
-        <div class="recap_box" id="panier-plein">
-            <p>Destination : <span id="panier-dest">—</span></p>
-            <p>Date de départ : <span id="panier-depart">—</span></p>
-            <p>Date de retour : <span id="panier-retour">—</span></p>
-            <p>Adultes : <span id="panier-adultes">—</span></p>
-            <p>Enfants : <span id="panier-enfants">—</span></p>
-            <p>Petit-déjeuner : <span id="panier-dej">—</span></p>
+        <div id="liste-reservations"></div>
 
-            <h3>Total à payer : <span class="prix" id="panier-prix">— €</span></h3>
-            
-            <button id="bouton_supprimer">Vider le panier</button>
-        </div>
+        <div id="panier-actions" class="hidden">
+            <div class="recap_box" >
+                <h2>Total de la commande : <span id="total-global" class="prix">0</span> €</h2>
+            </div>
 
-        <div class="boutons">
-            <form action="reservation.html" method="get">
-                <input type="submit" value="Modifier la réservation" class="bouton_modifier">
-            </form>
+            <div class="boutons">
+                <a href="mainPage.html" class="bouton_modifier">
+                    Réserver un autre voyage
+                </a>
 
-            <form action="paiement.html" method="get">
-                <input type="submit" value="Confirmer la réservation" class="bouton_confirmer">
-            </form>
+                <form action="paiement.html" method="get">
+                    <input type="submit" value="Valider et Payer" class="bouton_confirmer">
+                </form>
+            </div>
         </div>
 
     </section>
-
-    <hr>
 
     <div id="footer-placeholder"></div>
 
@@ -60,7 +55,6 @@
             $("#footer-placeholder").load("footer.html");
         });
     </script>
-
     <script src="../js/panier.js"></script>
 </body>
 </html>
