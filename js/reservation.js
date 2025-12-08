@@ -1,4 +1,4 @@
-// Récupération des éléments du DOM
+// Récupération des éléments
 const inputs = {
     destination: document.getElementById('destination'),
     depart: document.getElementById('depart'),
@@ -67,6 +67,48 @@ document.addEventListener('DOMContentLoaded', async () => {
                 event.preventDefault();
                 alert("Veuillez vérifier les dates.");
             }
+        });
+    }
+    // 6. Sauvegarde dans le panier
+    if (inputs.form) {
+        inputs.form.addEventListener('submit', function(event) {
+            event.preventDefault(); // On empêche l'envoi classique pour traiter les données
+
+            // Validation finale
+            const dateDepart = new Date(inputs.depart.value);
+            const dateRetour = new Date(inputs.retour.value);
+            const prixTotal = parseInt(inputs.prixLabel.innerText); // Récupère le prix calculé
+
+            if (isNaN(dateDepart) || isNaN(dateRetour) || dateRetour <= dateDepart) {
+                alert("Veuillez vérifier les dates.");
+                return;
+            }
+
+            // Création de l'objet Réservation
+            // On récupère le nom complet de la ville pour l'affichage
+            const voyageChoisi = listeVoyages.find(v => v.id === inputs.destination.value);
+            const nomDestination = voyageChoisi ? voyageChoisi.ville : inputs.destination.value;
+
+            const reservation = {
+                id: Date.now(), // ID unique basé sur l'heure
+                destinationId: inputs.destination.value,
+                destinationNom: nomDestination,
+                dateDepart: inputs.depart.value,
+                dateRetour: inputs.retour.value,
+                adultes: inputs.adultes.value,
+                enfants: inputs.enfants.value,
+                petitDejeuner: inputs.breakfast.checked,
+                prixTotal: prixTotal
+            };
+
+            // Sauvegarde dans le localStorage
+            // On stocke sous forme de tableau pour gérer potentiellement plusieurs réservations
+            let panier = JSON.parse(localStorage.getItem('monPanier')) || [];
+            panier.push(reservation);
+            localStorage.setItem('monPanier', JSON.stringify(panier));
+
+            // Redirection vers la page panier
+            window.location.href = "panier.html";
         });
     }
 });
