@@ -7,12 +7,6 @@ function chargerResume() {
     // 1. Récupérer le panier
     const panier = JSON.parse(localStorage.getItem('monPanier')) || [];
 
-    if (panier.length === 0) {
-        alert("Votre panier est vide.");
-        window.location.href = "mainPage.html";
-        return;
-    }
-
     // 2. Préparation des éléments HTML
     const container = document.getElementById('liste-panier-paiement');
     const totalSpan = document.getElementById('rec-total');
@@ -75,7 +69,7 @@ function gererPaiement() {
             if(panier) panier.forEach(p => total += p.prixTotal);
 
             const commande = {
-                id: Date.now(),
+                id: Math.floor(Math.random() * (9999 - 1111 + 1)) + 1111,
                 dateCommande: new Date().toLocaleDateString(),
                 client: client,
                 contenu: panier,
