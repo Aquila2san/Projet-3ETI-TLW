@@ -18,21 +18,22 @@
     <h1>Confirmation de votre réservation</h1>
     <section class="recap">
         <div class="recap_box">
-            <p><strong>Merci pour votre commande ! Votre réservation a été enregistrée avec succès.</strong></p>
-            <p><strong>Un e-mail de confirmation vous a été envoyé.</strong></p>
-            <p><strong>Nous vous souhaitons un excellent voyage !</strong></p>
+            <p>Merci pour votre commande ! Votre réservation a été enregistrée avec succès.</p>
+            <p>Un e-mail de confirmation vous a été envoyé.</p>
+            <p>Nous vous souhaitons un excellent voyage !</p>
         </div>
         <hr>
 
         <div class="recap_box">
-            <h2>Récapitulatif de la réservation</h2>
-            <p><strong>Destination :</strong> —</p>
-            <p><strong>Date de départ :</strong> —</p>
-            <p><strong>Date de retour :</strong> —</p>
-            <p><strong>Adultes :</strong> —</p>
-            <p><strong>Enfants :</strong> —</p>
-            <p><strong>Petit-déjeuner :</strong> —</p>
-            <p><strong>Prix total :</strong> — €</p>
+            <h2>Récapitulatif de la réservation N° <span id="conf-id"></span></h2>
+
+            <p>Client : <span id="conf-nom">...</span></p>
+            <p>Email : <span id="conf-email">...</span></p>
+            <hr>
+            <div id="conf-liste-voyages">
+                </div>
+
+            <h3>Prix total réglé : <span class="prix" id="conf-total">... €</span></h3>
         </div>
         
         <div class="boutons">
@@ -53,5 +54,6 @@
             $("#footer-placeholder").load("footer.html");
         });
     </script>
+    <script src="../js/confirmation.js"></script>
 </body>
 </html>
