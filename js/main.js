@@ -8,14 +8,12 @@ fetch("../destinations/liste_Destinations.json")
     data.voyages.forEach(voyage => {
     var lat = voyage.latitude;
     var lon = voyage.longitude;
-    APIkey = `6983f003ff520b53812f2f527b6c9f04`;
 
     })*/
   data.voyages.forEach(voyage => {
     const a = document.createElement("a");
     var lat = voyage.latitude;
     var lon = voyage.longitude;
-    APIkey = `6983f003ff520b53812f2f527b6c9f04`;
     apiTemperature (voyage, lat, lon, APIkey, a);
     a.textContent = `${voyage.ville}, ${voyage.pays}, ${voyage.temperature}`;
     a.className = "cellule";
