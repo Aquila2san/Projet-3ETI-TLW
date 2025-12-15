@@ -20,17 +20,12 @@
 
         <h2>Résumé de votre commande</h2>
         <div class="recap_box">
-            <p><strong>Destination :</strong> —</p>
-            <p><strong>Date de départ :</strong> —</p>
-            <p><strong>Date de retour :</strong> —</p>
-            <p><strong>Adultes :</strong> —</p>
-            <p><strong>Enfants :</strong> —</p>
-            <p><strong>Petit-déjeuner :</strong> —</p>
+            <div id="liste-panier-paiement"></div>
 
-            <h3>Total à payer : <span class="prix">— €</span></h3>
+            <hr>
+            
+            <h3>Total à payer : <span class="prix" id="rec-total">0 €</span></h3>
         </div>
-
-        <hr>
     <!-- Formulaire de paiement -->
 
         <h2>Informations de paiement</h2>
@@ -73,5 +68,6 @@
             $("#footer-placeholder").load("footer.html");
         });
     </script>
+    <script src="../js/paiement.js"></script>
 </body>
 </html>
