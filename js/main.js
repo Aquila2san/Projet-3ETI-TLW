@@ -19,5 +19,4 @@ function filtreAnimaux (){
     if (dest.dataset.animaux === "non")
       dest.classList.toggle("masquer")
   }
-
 }

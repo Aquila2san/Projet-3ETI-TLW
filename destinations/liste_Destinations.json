@@ -53,6 +53,15 @@
         "prix": 160,
         "animaux": "oui",
         "description": "Ville de canaux et de culture au charme infini."
+        },
+        {
+        "id": "putrajaya",
+        "ville": "Putrajaya",
+        "pays": "Malaisie",
+        "image1":"putrajaya1.jpg",
+        "prix": 140,
+        "animaux": "oui",
+        "description": "Métropole moderne au bord d'un lac."
         }
     ]
 
