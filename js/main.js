@@ -35,11 +35,8 @@ async function get_temperature () {
 
           const temp = await temperature_API(voyage.latitude, voyage.longitude, weatherKEY);
 
-          console.log(temp);
-
           data.voyages[i].temperature = temp;
-          
-          console.log(data) //Pour afficher la data avec temperatures
+  
         }
         const temperatures_aJour = JSON.stringify(data);
         sessionStorage.setItem("voyages", temperatures_aJour);
@@ -78,6 +75,7 @@ fetch("../destinations/liste_Destinations.json")
     a.className = "cellule";
     a.href = `destination.html?id=${voyage.id}`;
     a.dataset.animaux = `${voyage.animaux}`;
+    a.dataset.prix = `${voyage.prix}`;
     a.style.backgroundImage = `url(../destinations/${voyage.image1})`;
     
     const p = document.createElement("p");
@@ -102,9 +100,26 @@ fetch("../destinations/liste_Destinations.json")
 function filtreAnimaux (){
   for (dest of document.getElementById("grid_cellules").children) {
     if (dest.dataset.animaux === "non") {
-      dest.classList.toggle("masquer")
+      dest.classList.toggle("filtre_animaux")
     }
-  }
+  };
+  filtrePrix()
 }
 
-function filtrePrix (){}
+function filtrePrix (){
+  const champ = document.getElementById("filtrePrix");
+  let texte = champ.value;
+  console.log(texte);
+  for (dest of document.getElementById("grid_cellules").children) {  
+    const prixMax = Number(texte);
+    let prixVoyage = Number(dest.dataset.prix);
+    console.log(prixVoyage);
+    console.log(prixMax);
+    if (prixMax < prixVoyage && prixMax > 0 ) {
+      dest.classList.add("filtre_prix");
+    }
+    else {
+      dest.classList.remove("filtre_prix");
+    }
+  } 
+}

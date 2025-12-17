@@ -16,7 +16,8 @@
     <div id="header-placeholder"></div>
     <!--- Grille de destinations-->
     <div id="filtres">
-        <input type="checkbox" name="toggleAnimaux" onclick=filtreAnimaux()> Animaux autorisés
+        <input id="filtreAnimaux" type="checkbox"  onclick=filtreAnimaux()> Animaux autorisés
+        <input id="filtrePrix" type="number" placeholder="prix maxi" min="0" step="10" onchange=filtrePrix()>€
     </div>
     <section id="grid_cellules">
         
