@@ -75,9 +75,15 @@ function gererPaiement() {
                 contenu: panier,
                 montantTotal: total
             };
-
+            
+            // Sauvegarder la commande validée
             localStorage.setItem('commandeValidee', JSON.stringify(commande));
             
+            // Sauvegarder dans l'historique global
+            let historique = JSON.parse(localStorage.getItem('historiqueCommandes')) || [];
+            historique.push(commande);
+            localStorage.setItem('historiqueCommandes', JSON.stringify(historique));
+
             // Redirection
             window.location.href = "confirmation.html";
         });

@@ -106,3 +106,5 @@ function filtreAnimaux (){
     }
   }
 }
+
+function filtrePrix (){}
