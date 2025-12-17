@@ -1,70 +1,108 @@
-/* Conteneur principal recap */
+:root {
+    --primary-blue: #0077cc;
+    --hover-blue: #005fa3;
+    --text-dark: #2c3e50;
+    --bg-card: #ffffff; 
+}
+
+/* 1. GESTION HAUTEUR ECRAN & IMAGE DE FOND */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0;
+}
+
+#affiche_destination {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
+    align-items: center;     /* Centre le contenu horizontalement */
+    
+    /* Assure que l'image de fond couvre tout, sans répétition */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    padding: 40px 20px; 
+}
+
+/* 2. CONTENEUR & CONTRASTE */
+
+#dest-titre {
+    color: white;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 3rem; 
+    text-align: center;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6); /* Ombre forte pour détacher le titre du ciel/fond */
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
 .recap {
-    max-width: 40%;
-    margin: 0 auto;
-    padding: 120px;
+    width: 100%;
+    max-width: 700px; 
     background: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* Résumé */
 .recap_box {
-    background: rgba(221, 222, 221, 0.85);
-    padding: 20px;
-    border-radius: 25px;
-    margin: 25px;
-    border: 3px solid blue;
-}
-#dest-titre{
-    color : white;
-    font-family : "RobotoBold", sans-serif;
-    font-style: normal;
-    font-weight: 550;
-    font-size: 22px;
-    padding: 25px;
+    background-color: var(--bg-card); 
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+    border: none;
+    border-left: 6px solid var(--primary-blue);
 }
 
+.recap_box h2 {
+    color: var(--primary-blue);
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
 
-/* Prix */
+.recap_box p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* 3. PRIX & BOUTONS */
+
 .prix {
-    color: blue;
-    font-weight: bold;
+    color: var(--primary-blue);
+    font-weight: 800;
+    font-size: 1.4em;
 }
 
-
-/* Boutons */
 .boutons {
     display: flex;
-    justify-content:space-evenly;
-
+    justify-content: center;
+    margin-top: 30px;
 }
 
-/* Style des boutons */
-.bouton_confirmer,.bouton_modifier {
-    width: 110%;
-    padding: 15px 12px;
-    border-radius: 20px;
-    border: none;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-/* Confirm */
 .bouton_confirmer {
-    background-color: #0077cc;
+    display: inline-block;
+    background-color: var(--primary-blue);
     color: white;
+    padding: 18px 40px; 
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 119, 204, 0.4);
+    transition: transform 0.2s ease, background-color 0.2s;
 }
 
 .bouton_confirmer:hover {
-    background-color: #005fa3;
+    background-color: var(--hover-blue);
+    transform: translateY(-3px);
 }
-
-/* Modifier */
-.bouton_modifier {
-    background-color: #e7e7e7;
-}
-
-.bouton_modifier:hover {
-    background-color: #d5d5d5;
-}
-

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Touraud-Saunier/reservation</title>
-    <!--- GROUPE A Touraud-Saunier --->
     <link href="../styles/stylePrincipal.css" rel="stylesheet" />
     <link href="../styles/stylePaiement_Panier.css" rel="stylesheet" />
 
@@ -13,7 +12,7 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <h1>Réservation</h1>
+    <h1 class="page-title">Réservation</h1>
 
     <section class="recap">
 
@@ -27,7 +26,6 @@
         
         <hr>
 
-        <!-- Formulaire de réservation -->
         <div class="recap_box">
             <form action="panier.html" method="get" id="formReservation">
                 
@@ -48,7 +46,7 @@
                 Petit-déjeuner ? :
                 <input type="checkbox" name="breakfast" id="breakfast"><br><br>
                 
-                <p>Prix estimé : <span id="prixTotal">0</span> €</p>
+                <p>Prix estimé : <span id="prixTotal" class="prix">0</span> €</p>
                 <div class="boutons">
                     <input type="reset" value="Réinitialiser" class="bouton_modifier">
                     <input type="submit" value="Valider" class="bouton_confirmer">
