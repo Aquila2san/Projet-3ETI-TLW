@@ -62,7 +62,6 @@ img {
     margin-right : 5%;
     margin-bottom: 5%;
     background-color: white;
-    text-shadow: 0px 0px 5px black;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 400px;
@@ -84,9 +83,18 @@ img {
 .cellule{
     border-radius: 1rem;
     background-size: 640px;
+
+}
+.titre{
     color : white;
+    text-shadow: 0px 0px 5px black;
+    font-size: 28px;
+    padding: 0px;
+}
+.temperature{
+    color : white;
+    text-shadow: 0px 0px 5px black;
     font-size: 22px;
-    padding: 20px;
 }
 .masquer{
     display : none;
