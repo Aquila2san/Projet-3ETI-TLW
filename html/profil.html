@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Travel'O</title>
+    
+    <link href="../styles/stylePrincipal.css" rel="stylesheet" />
+    <link href="../styles/stylePaiement_Panier.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <h1 class="page-title">Espace Client</h1>
+
+    <section id="login-view" class="recap">
+        <div class="recap_box">
+            <h2>Connexion</h2>
+            <p>Veuillez vous identifier pour accéder à vos réservations.</p>
+            
+            <form id="login-form">
+                <label for="email">Adresse e-mail :</label>
+                <input type="email" id="email" required placeholder="ex: client@travelo.fr">
+                <br><br>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" required placeholder="ex: 1234">
+                <br><br>
+
+                <div id="login-error" class="hidden">
+                    Email ou mot de passe incorrect.
+                </div>
+
+                <div class="boutons">
+                    <button type="submit" class="bouton_confirmer">Se connecter</button>
+                </div>
+            </form>
+            
+            <hr>
+            <p class="text-hint">
+                Pour tester :<br>
+                1. test@travelo.fr / mdp: 123<br>
+                2. client@travelo.fr / mdp:0000
+            </p>
+        </div>
+    </section>
+
+    <section id="profile-view" class="recap hidden">
+        
+        <div class="recap_box" > 
+            <h2>Bonjour, <span id="user-name">...</span> !</h2>
+            <p>Email : <span id="user-email">...</span></p>
+            <p>Statut : Membre Connecté</p>
+            
+            <div class="boutons">
+                <button id="btn-logout" class="bouton_modifier">Se déconnecter</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Historique de vos voyages</h2>
+        
+        <div id="historique-container">
+            </div>
+
+        <div id="no-history" class="hidden">
+            <p>Vous n'avez pas encore effectué de voyage avec nous.</p>
+            <div class="boutons">
+                <a href="mainPage.html" class="bouton_confirmer">Découvrir nos offres</a>
+            </div>
+        </div>
+
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        $(function(){
+            $("#header-placeholder").load("header.html");
+            $("#footer-placeholder").load("footer.html");
+        });
+    </script>
+    <script src="../js/profil.js"></script>
+</body>
+</html>

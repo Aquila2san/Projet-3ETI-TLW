@@ -1,0 +1,14 @@
+[
+    {
+        "email": "test@travelo.fr",
+        "password": "123",
+        "nom": "Utilisateur Test",
+        "historique": []
+    },
+    {
+        "email": "client@travelo.fr",
+        "password": "0000",
+        "nom": "Client Fidèle",
+        "historique": []
+    }
+]

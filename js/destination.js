@@ -1,41 +1,38 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // Récupérer l'ID dans l'URL
+    // 1. Récupérer l'ID dans l'URL
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
 
-    if (!id) return; // Si pas d'ID, on ne fait rien
+    if (!id) return; 
 
-    // Charger le JSON
+    // 2. Charger le JSON
     try {
         const response = await fetch('../destinations/liste_Destinations.json');
         const data = await response.json();
-                
-        // Trouver le bon voyage dans la liste "voyages"
-        const voyage = data.voyages.find(v => v.id === id);
+        
+        // Trouver le voyage correspondant
+        const voyage = data.voyages.find(v => v.id == id);
 
         if (voyage) {
-            // Textes
+            // 3. Remplir les textes
             document.getElementById('dest-titre').innerText = voyage.ville;
             document.getElementById('dest-pays').innerText = voyage.pays;
             document.getElementById('dest-description').innerText = voyage.description;
             document.getElementById('dest-prix').innerText = voyage.prix;
 
-            // Image en fond 
+            // 4. Mettre l'image de fond
             const affiche = document.getElementById("affiche_destination");
-            
-            affiche.style.backgroundImage = `url(../destinations/${voyage.image1})`;
-            affiche.style.backgroundSize = "cover";       
-            affiche.style.backgroundPosition = "center";  
-            affiche.style.backgroundAttachment = "fixed"; 
+            affiche.style.backgroundImage = `url('../destinations/${voyage.image1}')`;
 
-            // Mise à jour du lien
+            // 5. Mettre à jour le lien vers la réservation
             const lienReservation = document.getElementById('btn-reserver');
             lienReservation.href = `reservation.html?id=${id}`;
         } else {
-            console.error("Voyage non trouvé pour l'id : " + id);
+            console.error("Voyage introuvable : " + id);
+            document.getElementById('dest-titre').innerText = "Voyage introuvable";
         }
         
     } catch (error) {
-        console.error("Erreur", error);
+        console.error("Erreur chargement JSON :", error);
     }
-})
+});

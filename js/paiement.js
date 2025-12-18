@@ -4,49 +4,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function chargerResume() {
-    // 1. Récupérer le panier
     const panier = JSON.parse(localStorage.getItem('monPanier')) || [];
-
-    // 2. Préparation des éléments HTML
     const container = document.getElementById('liste-panier-paiement');
     const totalSpan = document.getElementById('rec-total');
     let totalGlobal = 0;
     const optionsDate = { day: 'numeric', month: 'long', year: 'numeric' };
 
-    // Vider le conteneur par sécurité
     container.innerHTML = "";
 
-    // 3. Génération de l'affichage pour chaque voyage
     panier.forEach((voyage, index) => {
         totalGlobal += voyage.prixTotal;
-
-        // Création d'un bloc visuel pour le voyage
         const divVoyage = document.createElement('div');
-        divVoyage.style.marginBottom = "15px"; // Un peu d'espace entre les voyages
+        divVoyage.style.marginBottom = "15px"; 
         divVoyage.style.paddingBottom = "15px";
-        
-        // Ajout d'une petite ligne de séparation sauf pour le dernier
         if (index < panier.length - 1) {
             divVoyage.style.borderBottom = "1px solid #ddd";
         }
 
-        // Construction du HTML
         divVoyage.innerHTML = `
             <p>Destination : ${voyage.destinationNom}</p>
             <p>Du ${new Date(voyage.dateDepart).toLocaleDateString('fr-FR', optionsDate)} 
                au ${new Date(voyage.dateRetour).toLocaleDateString('fr-FR', optionsDate)}</p>
-            <p>
-                ${voyage.adultes} Adulte(s), ${voyage.enfants} Enfant(s) 
-                <br>
-                Petit-déjeuner : ${voyage.petitDejeuner ? "Oui" : "Non"}
-            </p>
             <p>${voyage.prixTotal} €</p>
         `;
-
         container.appendChild(divVoyage);
     });
 
-    // 4. Affichage du total final
     totalSpan.textContent = totalGlobal + " €";
 }
 
@@ -57,16 +40,16 @@ function gererPaiement() {
         form.addEventListener('submit', (e) => {
             e.preventDefault(); 
 
+            // 1. Récupération des infos client et panier
             const client = {
                 nom: document.getElementById('titulaire').value,
                 email: document.getElementById('email').value,
                 adresse: document.getElementById('adresse').value
             };
-
-            const panier = JSON.parse(localStorage.getItem('monPanier'));
+            const panier = JSON.parse(localStorage.getItem('monPanier')) || [];
             
             let total = 0;
-            if(panier) panier.forEach(p => total += p.prixTotal);
+            panier.forEach(p => total += p.prixTotal);
 
             const commande = {
                 id: Math.floor(Math.random() * (9999 - 1111 + 1)) + 1111,
@@ -76,15 +59,37 @@ function gererPaiement() {
                 montantTotal: total
             };
             
-            // Sauvegarder la commande validée
+            // 2. Sauvegarde de la commande globale
             localStorage.setItem('commandeValidee', JSON.stringify(commande));
             
-            // Sauvegarder dans l'historique global
-            let historique = JSON.parse(localStorage.getItem('historiqueCommandes')) || [];
-            historique.push(commande);
-            localStorage.setItem('historiqueCommandes', JSON.stringify(historique));
+            // SAUVEGARDE DANS L'HISTORIQUE UTILISATEUR
+            const currentUserEmail = localStorage.getItem('travelo_utilisateur_actuel');
+            
+            if (currentUserEmail && panier.length > 0) {
+                let usersDB = JSON.parse(localStorage.getItem('travelo_utilisateur_donnees') || '[]');
+                const userIndex = usersDB.findIndex(u => u.email === currentUserEmail);
 
-            // Redirection
+                if (userIndex !== -1) {
+                    if (!usersDB[userIndex].historique) {
+                        usersDB[userIndex].historique = [];
+                    }
+
+                    // On boucle sur CHAQUE article du panier pour l'ajouter à l'historique
+                    panier.forEach(voyage => {
+                        const entreeHistorique = {
+                            destination: voyage.destinationNom,
+                            date: voyage.dateDepart,
+                            prix: voyage.prixTotal
+                        };
+                        usersDB[userIndex].historique.push(entreeHistorique);
+                    });
+
+                    // On sauvegarde la DB mise à jour
+                    localStorage.setItem('travelo_utilisateur_donnees', JSON.stringify(usersDB));
+                    console.log(panier.length + " voyages ajoutés à l'historique de " + currentUserEmail);
+                }
+            }
+            // Redirection vers confirmation
             window.location.href = "confirmation.html";
         });
     }
