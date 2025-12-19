@@ -12,6 +12,9 @@ body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
+    background-position-y: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 h1, h2, h3 {
@@ -22,10 +25,11 @@ h1, h2, h3 {
 /* Titre principal de la page */
 h1.page-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--primary-blue);
     margin-bottom: 40px;
+    text-shadow: 0px 0px 2px black;
 }
 
 /* Labels pour les formulaires */
