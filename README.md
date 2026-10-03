@@ -1,6 +1,7 @@
 # Travel Discovery & Booking Web Application
 
 A client-side travel booking and discovery platform built with vanilla JavaScript, HTML5, and CSS3. Developed as part of the Web Technologies curriculum at CPE Lyon.
+
 ![Gameplay Screenshot](image.png)
 
 ## Overview
