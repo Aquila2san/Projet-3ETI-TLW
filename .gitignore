@@ -1,0 +1,10 @@
+# Fichiers de configuration / clés secrètes
+keys.json
+
+# Fichiers système / OS
+.DS_Store
+Thumbs.db
+
+# Environnements virtuels & caches Python (si besoin)
+__pycache__/
+*.pyc
